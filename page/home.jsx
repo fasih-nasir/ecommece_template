@@ -1,21 +1,30 @@
-import React from 'react'
-// IMPORT IMAGE START
+import { useState,useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import 'swiper/css'; // Swiper main CSS
+import 'swiper/css/navigation'; // Swiper navigation CSS
+import 'swiper/css/pagination'; // Swiper pagination CSS
+
+// ================ ANT DESIGN START ====================
+import { Card, Button } from "antd";
+import 'antd/dist/reset.css';
+  
+const { Meta } = Card;
+
+// ================ ANT DESGIN END =====================
 // =============== CAROUSEL IMAGE START =================
 import car_img_1 from '../src/assets/sample-3.jpg'
 import car_img_2 from '../src/assets/sample-2.jpg'
 import car_img_3 from '../src/assets/sample-1.jpg'
 // =============== CAROUSEL IMAGE END =================
-// =============== CATEGORY IMAGE START =================
-import cat_img_1 from '../src/assets/cms-banner1.jpg'
-import cat_img_2 from '../src/assets/cms-banner2.jpg'
-import cat_img_3 from '../src/assets/cms-banner3.jpg'
-
-// =============== CATEGORY IMAGE END =================
 
 
 // IMPORT IMAGE END
 
 function Home() {
+    // ANTDESGIN CODE START
+    const [hovered, setHovered] = useState(false);
+    // ANTDESGIN CODE END
   return (
     <div>
       <>
@@ -221,6 +230,69 @@ Stay ahead with trendy frames that match every look and lifestyle.
 
  </section>
   {/* SECTION 3 END */}
+
+  {/* SECTION 4 START */}
+<section>
+    {/*  */}
+    <div className="container text-center">
+        <h2>Featured Products</h2>
+<p>Check out our collection of the top Featured Products that encourage conversion.</p>
+    </div>
+    {/*  */}
+{/* SWIPER START */}
+<Swiper
+      // install Swiper modules
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={3}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+    >
+      <SwiperSlide>
+      <div className="product-card" style={{ width: 240 }}>
+      <Card
+        hoverable
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        cover={
+          <img
+            alt="product"
+            src={
+              hovered
+                ? "https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_cmsbanner1/views/img/cms-banner1.jpg"
+                : "https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_cmsbanner1/views/img/cms-banner2.jpg"
+            }
+          />
+        }
+      >
+        <Meta title="Hummingbird Notebook" description="$12.90" />
+        <div className="product-actions" style={{ marginTop: 10 }}>
+          <Button className="quick-view-btn" type="default">
+            Quick View
+          </Button>
+          <Button className="wishlist-btn" type="primary" style={{ marginLeft: 8 }}>
+            Add to Wishlist
+          </Button>
+        </div>
+      </Card>
+    </div>
+        </SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+      ...
+    </Swiper>
+{/* SWIPER END */}
+</section>
+<div className="my-5 py-5">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, repellendus quam veniam inventore, temporibus dicta harum est sint quia maxime aspernatur explicabo. Impedit, mollitia. Nesciunt, accusantium dignissimos dicta quibusdam sed fugit temporibus quisquam facilis accusamus possimus magni officiis odio placeat similique itaque deserunt iusto optio! Illo nobis libero dicta ut officiis animi, voluptas saepe nostrum accusantium odit similique quibusdam architecto iure, minus blanditiis, dolorem assumenda rerum. Commodi totam quidem libero earum ut sint qui officiis ipsum, adipisci cumque reprehenderit necessitatibus in molestias possimus, natus beatae id repudiandae asperiores exercitationem maiores doloremque assumenda. Ad at libero qui ratione expedita consequuntur recusandae? Magnam suscipit impedit sapiente rerum aperiam et natus accusantium deserunt vel incidunt, harum sint, quibusdam quas doloribus minima tenetur hic. Repellat nihil ab libero provident, iure fugit perferendis nisi delectus magnam aperiam quas et hic dolorum! Ipsa obcaecati natus culpa ab voluptatem, fugiat veniam fuga accusantium ut libero quae, tenetur, dignissimos maiores non officiis quidem doloribus? Quibusdam ad officiis veritatis rerum porro facere! At hic explicabo distinctio officia praesentium maiores possimus libero, exercitationem debitis doloremque est obcaecati reiciendis dolorem ipsa cupiditate sapiente consectetur, adipisci voluptate corporis saepe sunt a dolor rem porro? Quae aspernatur harum animi repellat minus, odio quia?
+</div>
+  {/* SECTION 4 END */}
+  
+
 </>
 
     </div>

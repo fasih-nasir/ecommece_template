@@ -70,7 +70,7 @@ width: auto !important;
     background-color: var(--color1) !important;
   }
   .service-cms-banner-list > div{
-    padding: 10px;
+    padding: 20px 10px;
     margin: 3px 0px !important;
     font-size: 14px;
     border: 4px solid white;
