@@ -109,3 +109,50 @@ width: auto !important;
     
 
   }
+
+  /* ================ SWIPER ====================================== */
+  /* Wrap container to position arrows */
+.swiper-wrapper-container {
+  position: relative;
+  font-family: var(--font_family_poppins) !important;
+  }
+
+
+
+/* Style the navigation arrows */
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border:1px solid  var(--color1);
+  color: var(--color1);
+  padding: 10px 14px;
+  font-size: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+ .product-actions{
+  font-family: var(--font_family_poppins) !important;
+
+}
+.custom-prev {
+  left: 0;
+}
+
+.custom-next {
+  right: 0;
+}
+
+/* Button styling inside card */
+.product-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Optional: Card hover effect */
+

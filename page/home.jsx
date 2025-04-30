@@ -18,6 +18,17 @@ import car_img_2 from '../src/assets/sample-2.jpg'
 import car_img_3 from '../src/assets/sample-1.jpg'
 // =============== CAROUSEL IMAGE END =================
 
+// ===============  PRODUCT IMAGE START ===================
+import product_img_1 from '../src/assets/produc_1.jpg'
+import product_img_2 from '../src/assets/produc_2.jpg'
+import product_img_3 from '../src/assets/produc_3.jpg'
+import product_img_4 from '../src/assets/produc_4.jpg'
+import product_img_5 from '../src/assets/produc_5.jpg'
+
+
+// ===============  PRODUCT IMAGE END ===================
+
+
 
 // IMPORT IMAGE END
 
@@ -232,60 +243,174 @@ Stay ahead with trendy frames that match every look and lifestyle.
   {/* SECTION 3 END */}
 
   {/* SECTION 4 START */}
-<section>
+<section className="container-fluid">
     {/*  */}
     <div className="container text-center">
         <h2>Featured Products</h2>
 <p>Check out our collection of the top Featured Products that encourage conversion.</p>
     </div>
     {/*  */}
-{/* SWIPER START */}
-<Swiper
-      // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-      <SwiperSlide>
-      <div className="product-card" style={{ width: 240 }}>
-      <Card
-        hoverable
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        cover={
-          <img
-            alt="product"
-            src={
-              hovered
-                ? "https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_cmsbanner1/views/img/cms-banner1.jpg"
-                : "https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_cmsbanner1/views/img/cms-banner2.jpg"
-            }
-          />
-        }
+<div className="container-fluid">
+<div className="swiper-wrapper container-fluid">
+      <Swiper
+        modules={[Navigation]}
+        spaceBetween={30}
+        slidesPerView={4}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        
       >
-        <Meta title="Hummingbird Notebook" description="$12.90" />
-        <div className="product-actions" style={{ marginTop: 10 }}>
-          <Button className="quick-view-btn" type="default">
-            Quick View
-          </Button>
-          <Button className="wishlist-btn" type="primary" style={{ marginLeft: 8 }}>
-            Add to Wishlist
-          </Button>
-        </div>
-      </Card>
-    </div>
+     {/* CARD START */}
+     <SwiperSlide>
+          <div className="product-card col-lg-12">
+            <Card
+           
+              cover={
+                <img 
+                  alt="product"
+                  src={product_img_1}
+                />
+              }
+            >
+              <div className="product-actions d-flex flex-column">
+            <h5 className='fw-light'>Gareett Light Magician </h5>
+            <div className="d-flex flex-row justify-content-between align-items-center">
+            <h5>$38.90 </h5>
+            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
+            <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+
+               
+         
+              </div>
+            </Card>
+          </div>
         </SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      ...
-    </Swiper>
-{/* SWIPER END */}
+            {/* CARD END */}
+    {/* CARD START */}
+    <SwiperSlide>
+          <div className="product-card col-lg-12">
+            <Card
+           
+              cover={
+                <img 
+                  alt="product"
+                  src={product_img_1}
+                />
+              }
+            >
+              <div className="product-actions d-flex flex-column">
+            <h5 className='fw-light'>Gareett Light Magician </h5>
+            <div className="d-flex flex-row justify-content-between align-items-center">
+            <h5>$38.90 </h5>
+            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
+            <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+
+               
+         
+              </div>
+            </Card>
+          </div>
+        </SwiperSlide>
+            {/* CARD END */}
+       {/* CARD START */}
+    <SwiperSlide>
+          <div className="product-card col-lg-12">
+            <Card
+           
+              cover={
+                <img 
+                  alt="product"
+                  src={product_img_1}
+                />
+              }
+            >
+              <div className="product-actions d-flex flex-column">
+            <h5 className='fw-light'>Gareett Light Magician </h5>
+            <div className="d-flex flex-row justify-content-between align-items-center">
+            <h5>$38.90 </h5>
+            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
+            <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+
+               
+         
+              </div>
+            </Card>
+          </div>
+        </SwiperSlide>
+            {/* CARD END */}
+            {/* CARD START */}
+        {/* CARD START */}
+    <SwiperSlide>
+          <div className="product-card col-lg-12">
+            <Card
+           
+              cover={
+                <img 
+                  alt="product"
+                  src={product_img_1}
+                />
+              }
+            >
+              <div className="product-actions d-flex flex-column">
+            <h5 className='fw-light'>Gareett Light Magician </h5>
+            <div className="d-flex flex-row justify-content-between align-items-center">
+            <h5>$38.90 </h5>
+            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
+            <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+
+               
+         
+              </div>
+            </Card>
+          </div>
+        </SwiperSlide>
+            {/* CARD END */}
+            {/* CARD START */}
+       {/* CARD START */}
+    <SwiperSlide>
+          <div className="product-card col-lg-12">
+            <Card
+           
+              cover={
+                <img 
+                  alt="product"
+                  src={product_img_1}
+                />
+              }
+            >
+              <div className="product-actions d-flex flex-column">
+            <h5 className='fw-light'>Gareett Light Magician </h5>
+            <div className="d-flex flex-row justify-content-between align-items-center">
+            <h5>$38.90 </h5>
+            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
+            <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+
+               
+         
+              </div>
+            </Card>
+          </div>
+        </SwiperSlide>
+            {/* CARD END */}
+      </Swiper>
+
+      {/* Custom Navigation Arrows */}
+      <div className="custom-prev"><i className="fa-solid fa-arrow-left"></i></div>
+      <div className="custom-next"><i className="fa-solid fa-arrow-right"></i></div>
+    </div>
+</div>
 </section>
 <div className="my-5 py-5">
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, repellendus quam veniam inventore, temporibus dicta harum est sint quia maxime aspernatur explicabo. Impedit, mollitia. Nesciunt, accusantium dignissimos dicta quibusdam sed fugit temporibus quisquam facilis accusamus possimus magni officiis odio placeat similique itaque deserunt iusto optio! Illo nobis libero dicta ut officiis animi, voluptas saepe nostrum accusantium odit similique quibusdam architecto iure, minus blanditiis, dolorem assumenda rerum. Commodi totam quidem libero earum ut sint qui officiis ipsum, adipisci cumque reprehenderit necessitatibus in molestias possimus, natus beatae id repudiandae asperiores exercitationem maiores doloremque assumenda. Ad at libero qui ratione expedita consequuntur recusandae? Magnam suscipit impedit sapiente rerum aperiam et natus accusantium deserunt vel incidunt, harum sint, quibusdam quas doloribus minima tenetur hic. Repellat nihil ab libero provident, iure fugit perferendis nisi delectus magnam aperiam quas et hic dolorum! Ipsa obcaecati natus culpa ab voluptatem, fugiat veniam fuga accusantium ut libero quae, tenetur, dignissimos maiores non officiis quidem doloribus? Quibusdam ad officiis veritatis rerum porro facere! At hic explicabo distinctio officia praesentium maiores possimus libero, exercitationem debitis doloremque est obcaecati reiciendis dolorem ipsa cupiditate sapiente consectetur, adipisci voluptate corporis saepe sunt a dolor rem porro? Quae aspernatur harum animi repellat minus, odio quia?
