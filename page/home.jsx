@@ -7,6 +7,8 @@ import 'swiper/css/pagination'; // Swiper pagination CSS
 
 // ================ ANT DESIGN START ====================
 import { Card, Button } from "antd";
+import {  message, Space,Popover } from 'antd';
+
 import 'antd/dist/reset.css';
   
 const { Meta } = Card;
@@ -35,6 +37,29 @@ import product_img_5 from '../src/assets/produc_5.jpg'
 function Home() {
   var [feature_pro,setfeature_pro]=useState([]||"")
   var [addtocard,setaddtocard]=useState("")
+  const [messageApi, contextHolder] = message.useMessage();
+// ANT DESIGN CODE START
+const content = (
+  <div>
+    <p>Add To Card</p>
+   
+  </div>
+);
+const success = () => {
+  messageApi.open({
+    type: 'success',
+    content: 'Product Is Added Into Card',
+  });
+};
+
+const warning = () => {
+  messageApi.open({
+    type: 'warning',
+    content: 'This product is already in the cart!',
+  });
+};
+
+// ANT DESIGN CODE END
   // FEATURE PRODUCT START
 useEffect(()=>{
   try {
@@ -50,6 +75,7 @@ useEffect(()=>{
   // FEATURE PRODCUT END 
   return (
     <div>
+      {contextHolder}
       <>
   {/* HERO SECTION START  */}
   <main className="m-0 p-0">
@@ -299,6 +325,46 @@ Stay ahead with trendy frames that match every look and lifestyle.
       .map((element, index) => (
 
    <SwiperSlide key={index} className='col-lg-3 col-12'>
+    {/* // =============================  MODAL START ====================== */}
+<div
+    className="modal modal_of_cards fade mx-auto"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabIndex={-1}
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h1 className="modal-title fs-5" id="staticBackdropLabel">
+            Modal title
+          </h1>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          />
+        </div>
+        <div className="modal-body">...</div>
+        <div className="modal-footer">
+          <button
+            type="button"
+            className="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="button" className="btn btn-primary">
+            Understood
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/* ================================ MODEAL END ================== */}
    <div className="product-card col-12 ">
      <Card
     
@@ -309,12 +375,21 @@ Stay ahead with trendy frames that match every look and lifestyle.
          />
        }
      >
-       <div className="product-actions d-flex flex-column">
+       <div className="product-actions d-flex flex-column justify-content-between">
      <h5 className='fw-light'>{element.name} </h5>
-     <div className="d-flex flex-row justify-content-between align-items-center">
-     <h5>{element.price} </h5>
+     <div className="d-flex flex-column justify-content-between align-items-center">
+<div className='col-12 d-flex flex-row justify-content-between'>
+<h6>Rs:{element.price} </h6>
+<h6>Rating:{element.Rating} </h6>
+
+</div>
      {/* ======================= ADD TO CARD ========================= */}
+
+<div className='col-12 d-flex flex-row justify-content-between mt-2'>
+<button className='px-2  rounded-1 py-1 spo' data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy Now</button>
+<Popover content={content} >
      <button
+     className='bg text-white px-2 fs-5 rounded-1 py-1 spo'
   onClick={() => {
     const prev = JSON.parse(localStorage.getItem("cards") || "[]");
 
@@ -323,13 +398,20 @@ Stay ahead with trendy frames that match every look and lifestyle.
     if (index === -1) {
       prev.push(element);
       localStorage.setItem("cards", JSON.stringify(prev));
+      success();
+      success();
+
     } else {
-      console.log("Already in localStorage");
+      warning();
+      warning();
+
     }
   }}
 >
-  Add
+<i className="fa-solid fa-bag-shopping "></i>
 </button>
+</Popover>
+</div>
 
      {/* ======================= ADD TO CARD ========================= */}
 
