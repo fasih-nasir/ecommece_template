@@ -54,8 +54,14 @@ visibility: visible;
     width: 75%;
     transition: 0.5s ease;
 }
+.lg_navbar{
+  position: fixed !important;
+  top: 0% !important;  
+  width: 100% !important;
+  z-index: 22222; 
+  transition: 0.3s ease-in;
+}
 /* NAVBAR LARGE CSS END */
-
 .carousel-indicators button {
 width: auto !important;
     padding:6px 10px !important;

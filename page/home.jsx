@@ -317,15 +317,20 @@ Stay ahead with trendy frames that match every look and lifestyle.
      <button
   onClick={() => {
     const prev = JSON.parse(localStorage.getItem("cards") || "[]");
-    if (!prev.includes(element)) {
+
+    const index = prev.findIndex(item => item.id === element.id);
+
+    if (index === -1) {
       prev.push(element);
       localStorage.setItem("cards", JSON.stringify(prev));
+    } else {
+      console.log("Already in localStorage");
     }
   }}
-  className="bg fs-6 border-0 px-3 py-1 rounded-2 text-white"
 >
-  <i className="fa-solid fa-cart-shopping"></i>
+  Add
 </button>
+
      {/* ======================= ADD TO CARD ========================= */}
 
      </div>
