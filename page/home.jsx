@@ -33,9 +33,20 @@ import product_img_5 from '../src/assets/produc_5.jpg'
 // IMPORT IMAGE END
 
 function Home() {
-    // ANTDESGIN CODE START
-    const [hovered, setHovered] = useState(false);
-    // ANTDESGIN CODE END
+  var [feature_pro,setfeature_pro]=useState([]||"")
+  // FEATURE PRODUCT START
+useEffect(()=>{
+  try {
+    fetch("https://opensheet.elk.sh/11wt9H6eLMfw8tQi82k8MVfZ3vgzhqU6sNF1dTvR_U_s/Sheet1")
+    .then((e)=> e.json())
+    .then(e =>{
+  setfeature_pro(e)
+    })
+   } catch (error) {
+    
+   }
+},[])
+  // FEATURE PRODCUT END 
   return (
     <div>
       <>
@@ -53,12 +64,12 @@ function Home() {
             className="d-block w-100"
             alt="..."
           />
-          <div class="col-lg-6 col-12 d-flex flex-column justify-content-center p-4 position-absolute top-0 pt-5 h-100">
+          <div className="col-lg-6 col-12 d-flex flex-column justify-content-center p-4 position-absolute top-0 pt-5 h-100">
  <h6>Savings with 60% off on Sunglasses</h6>
-  <h2 class="fw-bold mb-3 display-4">Stylish Sunglasses</h2>
-  <p class="mb-4 fs-6 fw-normal">Get all the latest information on events, sales, and exclusive offers delivered straight to your inbox. 
+  <h2 className="fw-bold mb-3 display-4">Stylish Sunglasses</h2>
+  <p className="mb-4 fs-6 fw-normal">Get all the latest information on events, sales, and exclusive offers delivered straight to your inbox. 
     Be the first to know about our new arrivals, seasonal trends.</p>
-  <a href="#" class="btn btn-dark col-lg-3 col-6">Subscribe Now</a>
+  <a href="#" className="btn btn-dark col-lg-3 col-6">Subscribe Now</a>
 </div>
 
         </div>
@@ -251,165 +262,75 @@ Stay ahead with trendy frames that match every look and lifestyle.
     </div>
     {/*  */}
 <div className="container-fluid">
-<div className="swiper-wrapper container-fluid">
+  
+    {/* ===================================== */}
+<div className="swiper-wrapper ">
       <Swiper
-        modules={[Navigation]}
-        spaceBetween={30}
-        slidesPerView={4}
-        navigation={{
-          nextEl: ".custom-next",
-          prevEl: ".custom-prev",
-        }}
+     className="container-fluid"
+     modules={[Navigation]}
+     spaceBetween={40}
+     slidesPerView={1} // default (e.g., mobile)
+     navigation={{
+       nextEl: ".custom-next",
+       prevEl: ".custom-prev",
+     }}
+     breakpoints={{
+       // when window width is >= 576px
+       576: {
+         slidesPerView: 2,
+       },
+       // when window width is >= 768px (md)
+       768: {
+         slidesPerView: 3,
+       },
+       // when window width is >= 992px (lg)
+       992: {
+         slidesPerView: 4,
+       },
+     }}
         
       >
-     {/* CARD START */}
-     <SwiperSlide>
-          <div className="product-card col-lg-12">
-            <Card
-           
-              cover={
-                <img 
-                  alt="product"
-                  src={product_img_1}
-                />
-              }
-            >
-              <div className="product-actions d-flex flex-column">
-            <h5 className='fw-light'>Gareett Light Magician </h5>
-            <div className="d-flex flex-row justify-content-between align-items-center">
-            <h5>$38.90 </h5>
-            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
-            <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-            </div>
+   
+   
+ 
+      {feature_pro.map((element, index) => (
+   
 
-               
-         
-              </div>
-            </Card>
-          </div>
-        </SwiperSlide>
-            {/* CARD END */}
-    {/* CARD START */}
-    <SwiperSlide>
-          <div className="product-card col-lg-12">
-            <Card
-           
-              cover={
-                <img 
-                  alt="product"
-                  src={product_img_1}
-                />
-              }
-            >
-              <div className="product-actions d-flex flex-column">
-            <h5 className='fw-light'>Gareett Light Magician </h5>
-            <div className="d-flex flex-row justify-content-between align-items-center">
-            <h5>$38.90 </h5>
-            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
-            <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-            </div>
+   <SwiperSlide key={index} className='col-lg-3 col-12'>
+   <div className="product-card col-12 ">
+     <Card
+    
+       cover={
+         <img 
+           alt="product"
+           src={element.img}
+         />
+       }
+     >
+       <div className="product-actions d-flex flex-column">
+     <h5 className='fw-light'>{element.name} </h5>
+     <div className="d-flex flex-row justify-content-between align-items-center">
+     <h5>{element.price} </h5>
+     <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
+     <i class="fa-solid fa-cart-shopping"></i>
+         </button>
+     </div>
 
-               
-         
-              </div>
-            </Card>
-          </div>
-        </SwiperSlide>
-            {/* CARD END */}
-       {/* CARD START */}
-    <SwiperSlide>
-          <div className="product-card col-lg-12">
-            <Card
-           
-              cover={
-                <img 
-                  alt="product"
-                  src={product_img_1}
-                />
-              }
-            >
-              <div className="product-actions d-flex flex-column">
-            <h5 className='fw-light'>Gareett Light Magician </h5>
-            <div className="d-flex flex-row justify-content-between align-items-center">
-            <h5>$38.90 </h5>
-            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
-            <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-            </div>
+        
+  
+       </div>
+     </Card>
+   </div>
+ </SwiperSlide>
 
-               
-         
-              </div>
-            </Card>
-          </div>
-        </SwiperSlide>
-            {/* CARD END */}
-            {/* CARD START */}
-        {/* CARD START */}
-    <SwiperSlide>
-          <div className="product-card col-lg-12">
-            <Card
-           
-              cover={
-                <img 
-                  alt="product"
-                  src={product_img_1}
-                />
-              }
-            >
-              <div className="product-actions d-flex flex-column">
-            <h5 className='fw-light'>Gareett Light Magician </h5>
-            <div className="d-flex flex-row justify-content-between align-items-center">
-            <h5>$38.90 </h5>
-            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
-            <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-            </div>
 
-               
-         
-              </div>
-            </Card>
-          </div>
-        </SwiperSlide>
-            {/* CARD END */}
-            {/* CARD START */}
-       {/* CARD START */}
-    <SwiperSlide>
-          <div className="product-card col-lg-12">
-            <Card
-           
-              cover={
-                <img 
-                  alt="product"
-                  src={product_img_1}
-                />
-              }
-            >
-              <div className="product-actions d-flex flex-column">
-            <h5 className='fw-light'>Gareett Light Magician </h5>
-            <div className="d-flex flex-row justify-content-between align-items-center">
-            <h5>$38.90 </h5>
-            <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
-            <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-            </div>
-
-               
-         
-              </div>
-            </Card>
-          </div>
-        </SwiperSlide>
-            {/* CARD END */}
-      </Swiper>
-
+))}
+     </Swiper>
       {/* Custom Navigation Arrows */}
       <div className="custom-prev"><i className="fa-solid fa-arrow-left"></i></div>
       <div className="custom-next"><i className="fa-solid fa-arrow-right"></i></div>
     </div>
+    {/* ====================================== */}
 </div>
 </section>
 <div className="my-5 py-5">

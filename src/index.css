@@ -156,3 +156,8 @@ width: auto !important;
 
 /* Optional: Card hover effect */
 
+.product-card img{
+  height: 250px;
+  background-size: cover;
+  object-fit: cover;
+}
