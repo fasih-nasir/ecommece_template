@@ -1,7 +1,23 @@
 import React from 'react'
-
+import { Avatar, Badge } from 'antd';
+import { Button, Drawer } from 'antd';
+import { useState } from 'react';
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const showLoading = () => {
+    setOpen(true);
+    setLoading(true);
+
+    // Simple loading mock. You should add cleanup logic in real world.
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+  var [data,setdata]=useState(JSON.parse(localStorage.getItem("cards" || "")))
   return (
+    
     <div>
       <>
   {/* HEADER START */}
@@ -118,13 +134,13 @@ export default function Navbar() {
             </li>
             {/* NAV-LINK END */}
           </ul>
-          <form className="d-flex ">
-            <input
-              className="form-contro col-10 ms-auto"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
+          <form className="d-flex text-white col-2">
+          <Button className='ms-auto'  onClick={showLoading}>
+  <Badge count={data.length} offset={[10, 10]}>
+    <i className="fas fa-shopping-cart"></i>
+  </Badge>
+</Button>
+
           </form>
         </div>
       </div>
@@ -219,6 +235,28 @@ export default function Navbar() {
     </a>
     {/* SCROL TO TOP BTN END */}
   </header>
+{/* ================== DRWAER START ==================== */}
+<Drawer
+  closable={false}
+  open={open}
+  loading={loading}
+  onClose={() => setOpen(false)}
+>
+  <div className="col-12 m-0 p-0">
+    <h4>Shopping Cart</h4>
+    {/* Cart List */}
+    {data.map((element, index) => (
+      <div key={index} className="d-flex flex-row justify-content-between align-items-center col-12 my-2 shadow-sm py-2 ">
+        <img src={element.img} alt={`Product ${index}`} className='col-2 rounded-2' />
+        <p className='col-6 ps-1'>{element.name} <br />{element.price}</p>
+        <i className="fa fa-trash col-2 text-end pe-2" aria-hidden="true"></i>
+      </div>
+    ))}
+    {/* Cart List */}
+  </div>
+</Drawer>
+
+{/* =================== DRWAER END ==================== */}
   {/* HEADER END */}
 </>
 

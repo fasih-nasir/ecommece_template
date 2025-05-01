@@ -34,6 +34,7 @@ import product_img_5 from '../src/assets/produc_5.jpg'
 
 function Home() {
   var [feature_pro,setfeature_pro]=useState([]||"")
+  var [addtocard,setaddtocard]=useState()
   // FEATURE PRODUCT START
 useEffect(()=>{
   try {
@@ -296,10 +297,6 @@ Stay ahead with trendy frames that match every look and lifestyle.
       {feature_pro
        .filter((element) => element.cat === "feature" && element.instock === "yes")
       .map((element, index) => (
-  console.log(element.cat),
-  
- 
-  
 
    <SwiperSlide key={index} className='col-lg-3 col-12'>
    <div className="product-card col-12 ">
@@ -316,9 +313,21 @@ Stay ahead with trendy frames that match every look and lifestyle.
      <h5 className='fw-light'>{element.name} </h5>
      <div className="d-flex flex-row justify-content-between align-items-center">
      <h5>{element.price} </h5>
-     <button type="" className='bg fs-6 border-0 px-3 py-1 rounded-2 text-white' >
-     <i class="fa-solid fa-cart-shopping"></i>
-         </button>
+     {/* ======================= ADD TO CARD ========================= */}
+     <button
+  onClick={() => {
+    const prev = JSON.parse(localStorage.getItem("cards") || "[]");
+    if (!prev.includes(element)) {
+      prev.push(element);
+      localStorage.setItem("cards", JSON.stringify(prev));
+    }
+  }}
+  className="bg fs-6 border-0 px-3 py-1 rounded-2 text-white"
+>
+  <i className="fa-solid fa-cart-shopping"></i>
+</button>
+     {/* ======================= ADD TO CARD ========================= */}
+
      </div>
 
         
