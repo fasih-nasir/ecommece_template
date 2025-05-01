@@ -1,7 +1,7 @@
 import React from 'react'
 import { Avatar, Badge } from 'antd';
 import { Button, Drawer } from 'antd';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -15,8 +15,14 @@ export default function Navbar() {
       setLoading(false);
     }, 2000);
   };
-
-  var [data, setdata] = useState(JSON.parse(localStorage.getItem("cards")) || []);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setData(JSON.parse(localStorage.getItem("cards") || "[]"));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  
 
   return (
     
@@ -268,14 +274,15 @@ export default function Navbar() {
   className='text-decoration-none text-white bg' 
   href={`https://wa.me/+923146903187?text=${encodeURIComponent(
     data.map(product => 
-      `Product: ${product.name}, ID: ${product.id}, Price: ${product.price}, Image: ${product.img}`
-    ).join('\n')
+      `Product: ${product.name}\nPrice: ${product.price}`
+    ).join('\n\n') // double line break between products
   )}`} 
   target="_blank" 
   rel="noopener noreferrer"
 >
   Checkout
 </a>
+
 
 
 </div>
