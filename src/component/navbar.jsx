@@ -263,18 +263,28 @@ export default function Navbar() {
     <h4>Shopping Cart {`(${data.length})`}</h4>
     {/* Cart List */}
     {data.map((element, index) => (
-      <div key={index} className="mt-4 d-flex flex-row justify-content-between align-items-center col-12 my-2 shadow-sm py-2 ">
-        <img src={element.img} alt={`Product ${index}`} className='col-1 rounded-2' />
-        <p className='col-6 ps-1'>{element.name} <br />{element.price}</p>
-        <input type="text" className='col-2' placeholder='' />
-        <i className="fa fa-trash col-2 text-end pe-2" aria-hidden="true" onClick={() => {
-  const newData = [...data];
-  newData.splice(index, 1);
-  localStorage.setItem("cards", JSON.stringify(newData));
-  setData(newData);
-}}></i>
-      </div>
-    ))}
+  <div key={index} className="mt-4 d-flex flex-row justify-content-between align-items-center col-12 my-2 shadow-sm py-2">
+    <img src={element.img} alt={`Product ${index}`} className="col-1 rounded-2" />
+    <p className="col-6 ps-1">{element.name} <br />{element.price}</p>
+    
+  
+    {/* Delete Item */}
+    <i 
+      className="fa fa-trash col-2 text-end pe-2" 
+      aria-hidden="true" 
+      onClick={() => {
+        const newData = [...data];
+        newData.splice(index, 1); // Remove item from cart
+        setData(newData); // Update local state
+        localStorage.setItem("cards", JSON.stringify(newData)); // Save updated data to localStorage
+      }}
+    ></i>
+  </div>
+))}
+
+{/* Checkout Button */}
+
+
     {/* Cart List */}
 <div className="col-12 d-flex flex-row justify-content-center mb-2 position-absolute bottom-0 mx-auto">
 <a 
