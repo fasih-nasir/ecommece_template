@@ -257,21 +257,27 @@ export default function Navbar() {
   open={open}
   loading={loading}
   onClose={() => setOpen(false)}
+ rootClassName="drawer-custom"
 >
   <div className="col-12 m-0 p-0">
-    <h4>Shopping Cart</h4>
+    <h4>Shopping Cart {`(${data.length})`}</h4>
     {/* Cart List */}
     {data.map((element, index) => (
-      <div key={index} className="d-flex flex-row justify-content-between align-items-center col-12 my-2 shadow-sm py-2 ">
-        <img src={element.img} alt={`Product ${index}`} className='col-2 rounded-2' />
+      <div key={index} className="mt-4 d-flex flex-row justify-content-between align-items-center col-12 my-2 shadow-sm py-2 ">
+        <img src={element.img} alt={`Product ${index}`} className='col-1 rounded-2' />
         <p className='col-6 ps-1'>{element.name} <br />{element.price}</p>
-        <i className="fa fa-trash col-2 text-end pe-2" aria-hidden="true"></i>
+        <i className="fa fa-trash col-2 text-end pe-2" aria-hidden="true" onClick={() => {
+  const newData = [...data];
+  newData.splice(index, 1);
+  localStorage.setItem("cards", JSON.stringify(newData));
+  setData(newData);
+}}></i>
       </div>
     ))}
     {/* Cart List */}
 <div className="col-12 d-flex flex-row justify-content-center mb-2 position-absolute bottom-0 mx-auto">
 <a 
-  className='text-decoration-none text-white bg' 
+  className='text-decoration-none text-white bg p-2 px-5 rounded-3' 
   href={`https://wa.me/+923146903187?text=${encodeURIComponent(
     data.map(product => 
       `Product: ${product.name}\nPrice: ${product.price}`
