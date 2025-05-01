@@ -293,8 +293,13 @@ Stay ahead with trendy frames that match every look and lifestyle.
    
    
  
-      {feature_pro.map((element, index) => (
-   
+      {feature_pro
+       .filter((element) => element.cat === "feature" && element.instock === "yes")
+      .map((element, index) => (
+  console.log(element.cat),
+  
+ 
+  
 
    <SwiperSlide key={index} className='col-lg-3 col-12'>
    <div className="product-card col-12 ">
