@@ -266,6 +266,7 @@ export default function Navbar() {
       <div key={index} className="mt-4 d-flex flex-row justify-content-between align-items-center col-12 my-2 shadow-sm py-2 ">
         <img src={element.img} alt={`Product ${index}`} className='col-1 rounded-2' />
         <p className='col-6 ps-1'>{element.name} <br />{element.price}</p>
+        <input type="text" className='col-2' placeholder='' />
         <i className="fa fa-trash col-2 text-end pe-2" aria-hidden="true" onClick={() => {
   const newData = [...data];
   newData.splice(index, 1);

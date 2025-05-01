@@ -173,9 +173,14 @@ width: auto !important;
   transition: 0.5s ease-in-out !important;
 
 }
+@media (min-width:992px) {
+  .drawer-custom>div{
+
+    width: 50% !important;
+  }
+}
 .drawer-custom >div{
   transition: 0.5s ease-in-out !important;
-  width: 50% !important;
   font-family: var(--font_family_poppins) !important;
   background-color: #ffffff05;
   backdrop-filter: blur(5px) !important;
