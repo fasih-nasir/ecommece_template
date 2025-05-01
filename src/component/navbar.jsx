@@ -264,10 +264,20 @@ export default function Navbar() {
     ))}
     {/* Cart List */}
 <div className="col-12 d-flex flex-row justify-content-center mb-2 position-absolute bottom-0 mx-auto">
-  <button className='bg text-white mx-auto col-4 p-2 border-0 pb-2'>
-  <a className='text-decoration-none text-white' href={`https://wa.me/03146903187?text=${encodeURIComponent(`${JSON.stringify(localStorage.getItem("cards" || ""))}`)}data`} target="_blank" rel="noopener noreferrer">Checkout</a>
+<a 
+  className='text-decoration-none text-white bg' 
+  href={`https://wa.me/+923146903187?text=${encodeURIComponent(
+    data.map(product => 
+      `Product: ${product.name}, ID: ${product.id}, Price: ${product.price}, Image: ${product.img}`
+    ).join('\n')
+  )}`} 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  Checkout
+</a>
 
-  </button>
+
 </div>
   </div>
 </Drawer>
