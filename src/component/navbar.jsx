@@ -15,7 +15,7 @@ export default function Navbar() {
       setLoading(false);
     }, 2000);
   };
-  var [data,setdata]=useState(JSON.parse(localStorage.getItem("cards" || "")))
+  var [data,setdata]=useState(JSON.parse(localStorage.getItem("cards" || [])))
   
   return (
     

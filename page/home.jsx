@@ -34,7 +34,7 @@ import product_img_5 from '../src/assets/produc_5.jpg'
 
 function Home() {
   var [feature_pro,setfeature_pro]=useState([]||"")
-  var [addtocard,setaddtocard]=useState()
+  var [addtocard,setaddtocard]=useState("")
   // FEATURE PRODUCT START
 useEffect(()=>{
   try {
