@@ -144,7 +144,7 @@ export default function Navbar() {
 
           </form>
         </div>
-        <form className="d-flex text-white col-2">
+        <form className="d-lg-none d-flex text-white col-2">
           <Button className='ms-auto'  onClick={showLoading}>
   <Badge count={data.length} offset={[10, 10]}>
     <i className="fas fa-shopping-cart"></i>
