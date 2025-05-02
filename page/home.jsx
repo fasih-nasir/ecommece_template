@@ -354,7 +354,7 @@ Stay ahead with trendy frames that match every look and lifestyle.
 <div className='col-12 d-flex flex-row justify-content-between mt-2'>
 <button
   type="button"
-  className="btn btn-primary" // Optional: Add styling
+  className="btn bg-transparent border fs-6 " // Optional: Add styling
   data-bs-toggle="modal"
   data-bs-target="#buyNowModal"  // Make sure this ID matches the modal's ID
   onClick={() => setsingle_card(element)}
@@ -487,11 +487,16 @@ Stay ahead with trendy frames that match every look and lifestyle.
                 const modalEl = document.getElementById("buyNowModal");
                 // const modalInstance = bootstrap.Modal.getInstance(modalEl);
                 // if (modalInstance) modalInstance.hide();
-
+                const modalBackdrop = document.querySelector('.modal.show');
+                if (modalBackdrop) {
+                  const closeBtn = modalBackdrop.querySelector('[data-bs-dismiss="modal"]');
+                  if (closeBtn) closeBtn.click();
+                }
+                
                 // ✅ Open WhatsApp after delay
                 setTimeout(() => {
                   window.open(whatsappUrl, "_blank");
-                }, 100); // 10 seconds
+                }, 2500); // 10 seconds
               }}
             >
               <h4 className="mb-3">Fill This Form</h4>

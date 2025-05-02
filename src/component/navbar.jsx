@@ -264,7 +264,7 @@ export default function Navbar() {
     {/* Cart List */}
     {data.map((element, index) => (
   <div key={index} className="mt-4 d-flex flex-row justify-content-between align-items-center col-12 my-2 shadow-sm py-2">
-    <img src={element.img} alt={`Product ${index}`} className="col-1 rounded-2" />
+    <img src={element.img} alt={`Product ${index}`} className="col-2 rounded-2" />
     <p className="col-6 ps-1">{element.name} <br />{element.price}</p>
     
   
