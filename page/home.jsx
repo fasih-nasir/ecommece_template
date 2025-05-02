@@ -4,7 +4,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css'; // Swiper main CSS
 import 'swiper/css/navigation'; // Swiper navigation CSS
 import 'swiper/css/pagination'; // Swiper pagination CSS
-
+// import * as bootstrap from 'bootstrap';
 // ================ ANT DESIGN START ====================
 import { Card, Button } from "antd";
 import {  message, Space,Popover } from 'antd';
@@ -354,16 +354,14 @@ Stay ahead with trendy frames that match every look and lifestyle.
 <div className='col-12 d-flex flex-row justify-content-between mt-2'>
 <button
   type="button"
-data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-  onClick={(e)=>
-  {setsingle_card(element)
-
-    
-  }}
+  className="btn btn-primary" // Optional: Add styling
+  data-bs-toggle="modal"
+  data-bs-target="#buyNowModal"  // Make sure this ID matches the modal's ID
+  onClick={() => setsingle_card(element)}
 >
- 
   Buy Now
 </button>
+
 
 
 <Popover content={content} >
@@ -418,144 +416,139 @@ data-bs-toggle="modal" data-bs-target="#staticBackdrop"
 </div>
 
 </section>
-<div className="my-5 py-5 ">
-<div
-  className="modal fade  modal-xxl"
-  id="staticBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabIndex={-1}
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div className="modal-dialog  modal-lg">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h1 className="modal-title fs-5" id="staticBackdropLabel">
-        {single_card.name}
-        </h1>
-        <button
-          type="button"
-          className="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        />
+<div className="my-5 py-5">
+  <div
+    className="modal fade modal-xxl"
+    id="buyNowModal"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabIndex={-1}
+    aria-labelledby="buyNowModalLabel"
+    aria-hidden="true"
+  >
+    <div className="modal-dialog modal-lg">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h1 className="modal-title fs-5" id="buyNowModalLabel">
+            {single_card.name}
+          </h1>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          />
+        </div>
+
+        <div className="modal-body container-fluid d-flex flex-lg-row flex-column shadow-none border-0">
+          {/* Left: Image */}
+          <div className="col-lg-4 col-12 p-2">
+            <Card
+              cover={
+                <img
+                  alt="product"
+                  src={single_card.img}
+                  className="mx-auto img-fluid col-12 h-100 shadow-none border-0"
+                />
+              }
+            />
+          </div>
+
+          {/* Right: Form */}
+          <div className="col-lg-8 col-12 p-2">
+            <form
+              className="p-4 border-0 rounded shadow-none"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target;
+
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const qty = form.quantity.value.trim();
+                const location = form.location.value.trim();
+
+                if (!name || !email || !qty || !location) {
+                  alert("Please fill in all fields.");
+                  return;
+                }
+
+                const product = single_card.title;
+                const price = single_card.price;
+                const messageText = `Buy Now Request:%0AName: ${name}%0AEmail: ${email}%0AQuantity: ${qty}%0ALocation: ${location}%0AProduct: ${single_card.name}%0APrice: $${price}%0AImage: ${single_card.img}`;
+                const whatsappUrl = `https://wa.me/923146903187?text=${messageText}`;
+
+                // ✅ Show AntD success message
+                message.success("Message successfully sent. Redirecting to WhatsApp...");
+
+                // ✅ Reset form
+                form.reset();
+
+                // ✅ Close modal
+                const modalEl = document.getElementById("buyNowModal");
+                // const modalInstance = bootstrap.Modal.getInstance(modalEl);
+                // if (modalInstance) modalInstance.hide();
+
+                // ✅ Open WhatsApp after delay
+                setTimeout(() => {
+                  window.open(whatsappUrl, "_blank");
+                }, 100); // 10 seconds
+              }}
+            >
+              <h4 className="mb-3">Fill This Form</h4>
+              <div className="mb-3">
+                <input
+                  name="name"
+                  type="text"
+                  className="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  name="email"
+                  type="email"
+                  className="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  name="quantity"
+                  type="number"
+                  className="form-control"
+                  placeholder="Quantity"
+                  min={1}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  name="location"
+                  type="text"
+                  className="form-control"
+                  placeholder="Location"
+                  required
+                />
+              </div>
+              <div className="d-flex justify-content-end">
+                <button
+                  type="submit"
+                  className="bg text-white border-0 py-2 px-5 rounded-2"
+                >
+                  Submit Form
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        {/* End modal-body */}
       </div>
-      <div className="modal-body  border-0 border-white container-fluid d-flex flex-lg-row flex-column shadow-none ">
-
-      <div className="col-lg-4 col-12 shadow-none border-0 ">
-
-<Card
-
-  cover={
-    <img 
-      alt="product"
-      src={single_card.img}
-      className='mx-auto img-fluid  col-lg-12 col-5 shadow-none border-0 bgh '
-    />
-  }
->
-
-</Card>
-
-</div>
-<div className="col-lg-8 col-12 shadow-none border-0">
-<form
-  className="p-4 border-0 rounded shadow-none"
-// Inside your component JSX:
-onSubmit={(e) => {
-  e.preventDefault();
-  const form = e.target;
-
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const qty = form.quantity.value.trim();
-  const location = form.location.value.trim();
-
-  if (!name || !email || !qty || !location) {
-    alert("Please fill in all fields.");
-    return;
-  }
-
-  const product = single_card.title;
-  const price = single_card.price;
-  const description = single_card.description;
-
-  const messageText = `Buy Now Request:%0AName: ${name}%0AEmail: ${email}%0AQuantity: ${qty}%0ALocation: ${location}%0AProduct: ${single_card.name}%0APrice: $${price}%0AImage: ${single_card.img}`;
-
-  const whatsappUrl = `https://wa.me/923146903187?text=${messageText}`;
-
-  // ✅ Show success message
-  message.success('Message successfully sent. Redirecting to WhatsApp...');
-
-  // ✅ Reset form
-  form.reset();
-  // ✅ Close Bootstrap modal
-  const modal = bootstrap.Modal.getInstance(document.getElementById('buyNowModal'));
-  modal.hide();
-  // ✅ Delay 10 seconds, then open WhatsApp
-  setTimeout(() => {
-    window.open(whatsappUrl, "_blank");
-
-  }, 1000); // 10 seconds = 10000ms
-}}
-
-
->
-  <h4 className="mb-3">Fill This Form</h4>
-  <div className="mb-3">
-    <input
-      name="name"
-      type="text"
-      className="form-control"
-      placeholder="Your Name"
-      required
-    />
-  </div>
-  <div className="mb-3">
-    <input
-      name="email"
-      type="email"
-      className="form-control"
-      placeholder="Your Email"
-      required
-    />
-  </div>
-  <div className="mb-3">
-    <input
-      name="quantity"
-      type="number"
-      className="form-control"
-      placeholder="Quantity"
-      min={1}
-      required
-    />
-  </div>
-  <div className="mb-3">
-    <input
-      name="location"
-      type="text"
-      className="form-control"
-      placeholder="Location"
-      required
-    />
-  </div>
-  <div className="d-flex justify-content-end">
-    <button type="submit" className="bg text-white border-0 py-2 px-5 rounded-2 ">
-  Submit Form
-    </button>
-  </div>
-</form>
-
-
-</div>
-      </div>
-    
     </div>
   </div>
 </div>
 
-   </div>
   {/* SECTION 4 END */}
   
 
