@@ -451,7 +451,7 @@ data-bs-toggle="modal" data-bs-target="#staticBackdrop"
     <img 
       alt="product"
       src={single_card.img}
-      className='mx-auto img-fluid  col-12 shadow-none border-0  h-100'
+      className='mx-auto img-fluid  col-lg-12 col-5 shadow-none border-0 bgh '
     />
   }
 >
