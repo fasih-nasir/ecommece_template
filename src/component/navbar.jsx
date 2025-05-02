@@ -47,7 +47,7 @@ export default function Navbar() {
           <i className="fa-solid fa-bars" />
         </button>
         {/* OFFCANVAS BTN END */}
-        <div className="collapse navbar-collapse  " id="navbarSupportedContent">
+        <div className="collapse navbar-collapse bg-transparent  " id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto ">
             {/* NAV-LINK START */}
             <li className="nav-item px-1">

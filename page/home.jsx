@@ -427,7 +427,7 @@ Stay ahead with trendy frames that match every look and lifestyle.
 </div>
 
 </section>
-<div className="my-5 py-5">
+<div className="">
   <div
     className="modal fade modal-xxl"
     id="buyNowModal"
@@ -566,6 +566,106 @@ Stay ahead with trendy frames that match every look and lifestyle.
 </div>
 
   {/* SECTION 4 END */}
+
+  {/* SECTION 5 START */}
+  <div className="container-fluid cmd_banner mt-5 d-flex flex-row justify-content-end align-items-center">
+  <div className="col-lg-6 col-12 d-flex flex-column me-auto justify-content-center p-4 position-absolute top-0 pt-5 h-100">
+ <h6>Savings with 60% off on Sunglasses</h6>
+  <h2 className="fw-bold mb-3 display-4">Stylish Sunglasses</h2>
+  <p className="mb-4 fs-6 fw-normal">Get all the latest information on events, sales, and exclusive offers delivered straight to your inbox. 
+    Be the first to know about our new arrivals, seasonal trends.</p>
+  <a href="#" className="btn btn-dark col-lg-3 col-6">Subscribe Now</a>
+</div>
+  </div>
+  {/* SECTION 5 END */}
+
+{/* SECTION 6 START */}
+<section className="testimonial-block-part py-5 bg-light">
+      <div className="container">
+        <div className="products-section-title text-center mb-4">
+          <h2 className="title">See What Our Customers Say</h2>
+          <span className="short-details">
+            Check our latest reviews from customers and share your feedback.
+          </span>
+        </div>
+        <div className="swiper-wrapper ">
+      <Swiper
+     className="container-fluid"
+     modules={[Navigation]}
+     spaceBetween={40}
+     slidesPerView={1} // default (e.g., mobile)
+     navigation={{
+       nextEl: ".custom-next",
+       prevEl: ".custom-prev",
+     }}
+     breakpoints={{
+       // when window width is >= 576px
+       576: {
+         slidesPerView: 2,
+       },
+       // when window width is >= 768px (md)
+       768: {
+         slidesPerView: 3,
+       },
+       // when window width is >= 992px (lg)
+       992: {
+         slidesPerView: 3,
+       },
+     }}
+        
+      >
+   
+   
+   <SwiperSlide>
+  <div className="testimonial-card">
+    <img src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_testimonial/views/img/testimonial-1.jpg" alt="Rose Bush" />
+    <h5>Rose Bush</h5>
+    <p>There are many variations of passages of Lorem Ipsum, but the majority have suffered alteration in some form, by injected humour.</p>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div className="testimonial-card">
+    <img src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_testimonial/views/img/testimonial-2.jpg" alt="Kevin Francis" />
+    <h5>Kevin Francis</h5>
+    <p>There are many variations of passages of Lorem Ipsum, but the majority have suffered alteration in some form, by injected humour.</p>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div className="testimonial-card">
+    <img src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_testimonial/views/img/testimonial-3.jpg" alt="Percy Kewshun" />
+    <h5>Percy Kewshun</h5>
+    <p>There are many variations of passages of Lorem Ipsum, but the majority have suffered alteration in some form, by injected humour.</p>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div className="testimonial-card">
+    <img src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_testimonial/views/img/testimonial-4.jpg" alt="Fay Daway" />
+    <h5>Fay Daway</h5>
+    <p>There are many variations of passages of Lorem Ipsum, but the majority have suffered alteration in some form, by injected humour.</p>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div className="testimonial-card">
+    <img src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_testimonial/views/img/testimonial-5.jpg" alt="Alex Smith" />
+    <h5>Alex Smith</h5>
+    <p>There are many variations of passages of Lorem Ipsum, but the majority have suffered alteration in some form, by injected humour.</p>
+  </div>
+</SwiperSlide>
+
+
+     </Swiper>
+      {/* Custom Navigation Arrows */}
+      <div className="custom-prev"><i className="fa-solid fa-arrow-left"></i></div>
+      <div className="custom-next"><i className="fa-solid fa-arrow-right"></i></div>
+    </div>
+      </div>
+    </section>
+
+{/* SECTION 6 END */}
   
 
 </>

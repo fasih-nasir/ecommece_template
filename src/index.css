@@ -19,6 +19,7 @@ display: block;
 opacity: 0;
 visibility: hidden;
 }
+
 .lg_navbar .dropdown:hover .dropdown-menu{
 opacity: 1;
 visibility: visible;
@@ -222,4 +223,13 @@ border: 1px solid var(--color1) !important;
   font-family: var(--font_family_poppins) !important;
   background-color: #ffffff05;
   backdrop-filter: blur(5px) !important;
+}
+
+.cmd_banner{
+  position: relative;
+  background-position:right;
+  object-fit: cover;
+  background-size: cover;
+  height: 60vh;
+  background-image: url("assets/cms-banner4.jpg");
 }
