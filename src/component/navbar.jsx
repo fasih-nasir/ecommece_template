@@ -31,7 +31,7 @@ export default function Navbar() {
   {/* HEADER START */}
   <header>
     {/* NAVBAR START LARGE SCREEN */}
-    <nav className="navbar navbar-expand-lg  navbar-light bg-dark  py-3 lg_navbar ">
+    <nav className="navbar navbar-expand-lg  navbar-light   py-3 lg_navbar ">
       <div className="container-fluid">
         <a className="navbar-brand text-white  col-2" href="#">
           Navbar

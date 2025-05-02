@@ -59,6 +59,8 @@ visibility: visible;
   top: 0% !important;  
   width: 100% !important;
   z-index: 22222; 
+  background-color: rgba(0, 0, 0, 0.281);
+  backdrop-filter: blur(6px);
   transition: 0.3s ease-in;
 }
 /* NAVBAR LARGE CSS END */
@@ -70,7 +72,11 @@ width: auto !important;
     border: none;
     transition: all 0.3s ease;
   }
-  
+  .lg_navbar  .nav-item .nav-link{
+    color: #ffffff !important; 
+    font-weight: 400;
+    font-size: 16px;
+  } 
   .carousel-indicators button.active {
     padding:10px 15px !important;
     background-color: var(--color1) !important;

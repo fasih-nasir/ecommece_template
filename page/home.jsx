@@ -20,6 +20,15 @@ import car_img_2 from '../src/assets/sample-2.jpg'
 import car_img_3 from '../src/assets/sample-1.jpg'
 // =============== CAROUSEL IMAGE END =================
 
+// =============== CMD END =================
+import cms_img_1 from '../src/assets/cms-banner1.jpg'
+import cms_img_2 from '../src/assets/cms-banner2.jpg'
+import cms_img_3 from '../src/assets/cms-banner3.jpg'
+import cms_img_4 from '../src/assets/cms-banner4.jpg'
+
+
+// =============== CMD START =================
+
 // ===============  PRODUCT IMAGE START ===================
 import product_img_1 from '../src/assets/produc_1.jpg'
 import product_img_2 from '../src/assets/produc_2.jpg'
@@ -83,13 +92,13 @@ useEffect(()=>{
       {contextHolder}
       <>
   {/* HERO SECTION START  */}
-  <main className="m-0 p-0">
+  <main className=" p-0 mt-5">
     <div
       id="carouselExampleFade"
-      className="carousel slide carousel-fade m-0 p-0"
+      className="carousel slide carousel-fade  p-0 mt-5"
       data-bs-ride="carousel"
     >
-      <div className="carousel-inner " >
+      <div className="carousel-inner  mt-5 pt-4" >
         <div className="carousel-item active position-relative">
           <img
             src={car_img_1}
@@ -242,7 +251,7 @@ Stay ahead with trendy frames that match every look and lifestyle.
         <a href="#">
           <img
             className="img-fluid transition"
-            src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_cmsbanner1/views/img/cms-banner1.jpg"
+            src={cms_img_1}
             alt="Men Sunglasses"
           />
         </a>
@@ -256,7 +265,8 @@ Stay ahead with trendy frames that match every look and lifestyle.
         <a href="#">
           <img
             className="img-fluid transition"
-            src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_cmsbanner1/views/img/cms-banner2.jpg"
+            src={cms_img_2}
+
             alt="Women Sunglasses"
           />
         </a>
@@ -270,7 +280,8 @@ Stay ahead with trendy frames that match every look and lifestyle.
         <a href="#">
           <img
             className="img-fluid transition"
-            src="https://prestashop.coderplace.com/PRS03/PRS03057/demo/modules/cp_cmsbanner1/views/img/cms-banner3.jpg"
+            src={cms_img_3}
+
             alt="Kids Sunglasses"
           />
         </a>
