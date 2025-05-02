@@ -35,6 +35,11 @@ import product_img_5 from '../src/assets/produc_5.jpg'
 // IMPORT IMAGE END
 
 function Home() {
+  // ================ SIBGLE CARD START ===================
+  var [single_card,setsingle_card]=useState([]||"")
+
+  // ================ SIBGLE CARD  END ===================
+
   var [feature_pro,setfeature_pro]=useState([]||"")
   var [addtocard,setaddtocard]=useState("")
   const [messageApi, contextHolder] = message.useMessage();
@@ -325,47 +330,8 @@ Stay ahead with trendy frames that match every look and lifestyle.
       .map((element, index) => (
 
    <SwiperSlide key={index} className='col-lg-3 col-12'>
-    {/* // =============================  MODAL START ====================== */}
-<div
-    className="modal modal_of_cards fade mx-auto"
-    id="staticBackdrop"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    tabIndex={-1}
-    aria-labelledby="staticBackdropLabel"
-    aria-hidden="true"
-  >
-    <div className="modal-dialog">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h1 className="modal-title fs-5" id="staticBackdropLabel">
-            Modal title
-          </h1>
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          />
-        </div>
-        <div className="modal-body">...</div>
-        <div className="modal-footer">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button type="button" className="btn btn-primary">
-            Understood
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  {/* ================================ MODEAL END ================== */}
-   <div className="product-card col-12 ">
+  <div className="product-card col-12 ">
+
      <Card
     
        cover={
@@ -386,7 +352,20 @@ Stay ahead with trendy frames that match every look and lifestyle.
      {/* ======================= ADD TO CARD ========================= */}
 
 <div className='col-12 d-flex flex-row justify-content-between mt-2'>
-<button className='px-2  rounded-1 py-1 spo' data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy Now</button>
+<button
+  type="button"
+data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+  onClick={(e)=>
+  {setsingle_card(element)
+
+    
+  }}
+>
+ 
+  Buy Now
+</button>
+
+
 <Popover content={content} >
      <button
      className='bg text-white px-2 fs-5 rounded-1 py-1 spo'
@@ -432,11 +411,89 @@ Stay ahead with trendy frames that match every look and lifestyle.
       <div className="custom-next"><i className="fa-solid fa-arrow-right"></i></div>
     </div>
     {/* ====================================== */}
+    {/* ======================= MODEAL START ============== */}
+
+
+{/* ======================= MODEAL END ================== */}
 </div>
+
 </section>
 <div className="my-5 py-5">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, repellendus quam veniam inventore, temporibus dicta harum est sint quia maxime aspernatur explicabo. Impedit, mollitia. Nesciunt, accusantium dignissimos dicta quibusdam sed fugit temporibus quisquam facilis accusamus possimus magni officiis odio placeat similique itaque deserunt iusto optio! Illo nobis libero dicta ut officiis animi, voluptas saepe nostrum accusantium odit similique quibusdam architecto iure, minus blanditiis, dolorem assumenda rerum. Commodi totam quidem libero earum ut sint qui officiis ipsum, adipisci cumque reprehenderit necessitatibus in molestias possimus, natus beatae id repudiandae asperiores exercitationem maiores doloremque assumenda. Ad at libero qui ratione expedita consequuntur recusandae? Magnam suscipit impedit sapiente rerum aperiam et natus accusantium deserunt vel incidunt, harum sint, quibusdam quas doloribus minima tenetur hic. Repellat nihil ab libero provident, iure fugit perferendis nisi delectus magnam aperiam quas et hic dolorum! Ipsa obcaecati natus culpa ab voluptatem, fugiat veniam fuga accusantium ut libero quae, tenetur, dignissimos maiores non officiis quidem doloribus? Quibusdam ad officiis veritatis rerum porro facere! At hic explicabo distinctio officia praesentium maiores possimus libero, exercitationem debitis doloremque est obcaecati reiciendis dolorem ipsa cupiditate sapiente consectetur, adipisci voluptate corporis saepe sunt a dolor rem porro? Quae aspernatur harum animi repellat minus, odio quia?
+<div
+  className="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabIndex={-1}
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="staticBackdropLabel">
+        {single_card.name}
+        </h1>
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        />
+      </div>
+      <div className="modal-body">
+
+      <div className="product-card col-12 ">
+
+<Card
+
+  cover={
+    <img 
+      alt="product"
+      src={single_card.img}
+      className='mx-auto img-fluid bgh'
+    />
+  }
+>
+  <div className="product-actions d-flex flex-column justify-content-between">
+<h5 className='fw-light'> </h5>
+<div className="d-flex flex-column justify-content-between align-items-center">
+<div className='col-12 d-flex flex-row justify-content-between'>
+<h6>Rs:{single_card.price} </h6>
+<h6>Rating:{single_card.Rating} </h6>
+
 </div>
+{/* ======================= ADD TO CARD ========================= */}
+
+
+
+{/* ======================= ADD TO CARD ========================= */}
+
+</div>
+
+   
+
+  </div>
+</Card>
+</div>
+      </div>
+      <div className="modal-footer">
+        <button
+          type="button"
+          className="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" className="btn btn-primary">
+          Understood
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   </div>
   {/* SECTION 4 END */}
   
 
